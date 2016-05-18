@@ -243,7 +243,15 @@ console.log(name  + '\n' + username  + '\n' + password  + '\n' + city  + '\n' + 
 		return false;
 })
 
-////google maps ////
+
+
+
+
+
+
+
+
+////google maps //////////////////////////////////////////////////////////
 //key: AIzaSyBOo3mntkfMMomnO0V0P6Mt4bQ3vMUUWIw
 
 // global variable
@@ -361,11 +369,12 @@ function geocodeAddress(geocoder, resultsMap) {
 							id: myUsers2[counter].level,
 ///test							
 							name: myUsers2[counter].name,
-							inst: myUsers2[counter].Instrument,
+							inst: myUsers2[counter].instrument,
 							city: myUsers2[counter].city,
-							level: myUsers2[counter].level,
+							level: myUsers2[counter].silllevel,
 							about: myUsers2[counter].about,
-							youtube: myUsers2[counter].youtube,
+							youtube: myUsers2[counter].sample,
+							photo: myUsers2[counter].photo,
 							html: 
 									'<div class="markerPop">' +
 									'<h1>' + myUsers2[counter].name + '</h1>' + 
@@ -376,7 +385,7 @@ function geocodeAddress(geocoder, resultsMap) {
 		var contentString = '<div id="content">'+
   	      						'<h4 class="firstHeading">'+ myUsers2[counter].name +'</h4>'+
 								'<div id="bodyContent">'+
-								'<p><b>'+myUsers2[counter].Instrument+'</b></p>'+
+								'<p><b>'+myUsers2[counter].instrument+'</b></p>'+
 								'</div>'+
 								'</div>';
 
@@ -407,6 +416,7 @@ function geocodeAddress(geocoder, resultsMap) {
 			  $('#modalCity').text(this.city);
 			  $('#modalLevel').text(this.level);
 			  $('#modalAbout').text(this.about);
+			  $('#modalPhoto').attr('src', this.photo);
 			 $('#modalFrame').attr('src', fullURL);
 						});
 
@@ -447,6 +457,15 @@ function geocodeBeginner(geocoder, resultsMap) {
               map: resultsMap,
               title: beginnerMarkers[counter].name,
               id: beginnerMarkers[counter].level,
+///test							
+				name: beginnerMarkers[counter].name,
+				inst: beginnerMarkers[counter].instrument,
+				city: beginnerMarkers[counter].city,
+				level: beginnerMarkers[counter].silllevel,
+				about: beginnerMarkers[counter].about,
+				youtube: beginnerMarkers[counter].sample,
+				photo: beginnerMarkers[counter].photo,
+
               html: 
                   '<div class="markerPop">' +
                   '<h1>' + beginnerMarkers[counter].name + '</h1>' + 
@@ -470,6 +489,33 @@ function geocodeBeginner(geocoder, resultsMap) {
            // allMarkers.push(markers); 
             counter++;
            // console.log(counter);
+/////////test
+/////Open Modal
+				google.maps.event.addListener(markers, 'click', function () {
+							var modalID = this.id;
+							var videoId = this.youtube
+							var url = videoId.split('be/')[1];
+							var fullURL = "https://www.youtube.com/embed/" + url;
+							//alert(this.name);
+				//var url = myUsers2[modalID].youtube;
+				//var level = myUsers2[modalID].level;
+			  $('#myModal').modal('show');
+			  $('#modalTitle').text(this.name);
+			  $('#modalInst').text(this.inst);
+			  $('#modalCity').text(this.city);
+			  $('#modalLevel').text(this.level);
+			  $('#modalAbout').text(this.about);
+			  $('#modalPhoto').attr('src', this.photo);
+			 $('#modalFrame').attr('src', fullURL);
+						});
+
+
+
+//////end test
+
+
+
+
             google.maps.event.addListener(markers, 'mouseover', function () {
 			infowindow.setContent(this.html);
 			infowindow.open(resultsMap, this);
@@ -503,6 +549,14 @@ function geocodeIntermediate(geocoder, resultsMap) {
               map: resultsMap,
               title: intermediateMarkers[counter].name,
               id: intermediateMarkers[counter].level,
+///test							
+				name: intermediateMarkers[counter].name,
+				inst: intermediateMarkers[counter].instrument,
+				city: intermediateMarkers[counter].city,
+				level: intermediateMarkers[counter].silllevel,
+				about: intermediateMarkers[counter].about,
+				youtube: intermediateMarkers[counter].sample,
+				photo: intermediateMarkers[counter].photo,
               html: 
                   '<div class="markerPop">' +
                   '<h1>' + intermediateMarkers[counter].name + '</h1>' + 
@@ -526,6 +580,29 @@ function geocodeIntermediate(geocoder, resultsMap) {
            // allMarkers.push(markers); 
             counter++;
            // console.log(counter);
+/////////test
+/////Open Modal
+				google.maps.event.addListener(markers, 'click', function () {
+							var modalID = this.id;
+							var videoId = this.youtube
+							var url = videoId.split('be/')[1];
+							var fullURL = "https://www.youtube.com/embed/" + url;
+							//alert(this.name);
+				//var url = myUsers2[modalID].youtube;
+				//var level = myUsers2[modalID].level;
+			  $('#myModal').modal('show');
+			  $('#modalTitle').text(this.name);
+			  $('#modalInst').text(this.inst);
+			  $('#modalCity').text(this.city);
+			  $('#modalLevel').text(this.level);
+			  $('#modalAbout').text(this.about);
+			  $('#modalPhoto').attr('src', this.photo);
+			 $('#modalFrame').attr('src', fullURL);
+						});
+
+
+
+//////end test
             google.maps.event.addListener(markers, 'mouseover', function () {
 			infowindow.setContent(this.html);
 			infowindow.open(resultsMap, this);
@@ -558,6 +635,14 @@ function geocodeExpert(geocoder, resultsMap) {
               map: resultsMap,
               title: expertMarkers[counter].name,
               id: expertMarkers[counter].level,
+///test							
+				name: expertMarkers[counter].name,
+				inst: expertMarkers[counter].instrument,
+				city: expertMarkers[counter].city,
+				level: expertMarkers[counter].silllevel,
+				about: expertMarkers[counter].about,
+				youtube: expertMarkers[counter].sample,
+				photo: expertMarkers[counter].photo,
               html: 
                   '<div class="markerPop">' +
                   '<h1>' + expertMarkers[counter].name + '</h1>' + 
@@ -581,6 +666,26 @@ function geocodeExpert(geocoder, resultsMap) {
            // allMarkers.push(markers); 
             counter++;
            // console.log(counter);
+/////////test
+/////Open Modal
+				google.maps.event.addListener(markers, 'click', function () {
+							var modalID = this.id;
+							var videoId = this.youtube
+							var url = videoId.split('be/')[1];
+							var fullURL = "https://www.youtube.com/embed/" + url;
+							//alert(this.name);
+				//var url = myUsers2[modalID].youtube;
+				//var level = myUsers2[modalID].level;
+			  $('#myModal').modal('show');
+			  $('#modalTitle').text(this.name);
+			  $('#modalInst').text(this.inst);
+			  $('#modalCity').text(this.city);
+			  $('#modalLevel').text(this.level);
+			  $('#modalAbout').text(this.about);
+			  $('#modalPhoto').attr('src', this.photo);
+			 $('#modalFrame').attr('src', fullURL);
+						});
+//////end test
             google.maps.event.addListener(markers, 'mouseover', function () {
 			infowindow.setContent(this.html);
 			infowindow.open(resultsMap, this);
