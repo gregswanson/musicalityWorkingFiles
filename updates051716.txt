@@ -1,0 +1,7 @@
+Update: 
+google maps functions
+id’s on search buttons
+css for google maps
+div for iso (bold)
+scroll for “lets Jam” (.markerPop)
+close Modal from button
