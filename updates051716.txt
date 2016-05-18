@@ -5,3 +5,4 @@ css for google maps
 div for iso (bold)
 scroll for “lets Jam” (.markerPop)
 close Modal from button
+“x” in modal should stop youtube vid
